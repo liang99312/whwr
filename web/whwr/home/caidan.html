@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="caiDan.css" type="text/css"/>
+        <script type="text/javascript" src="../../js/jquery2.js"></script>
+        <script type="text/javascript" src="../../js/whwr.js"></script>
+        <script type="text/javascript" src="caiDan.js"></script>
+    </head>
+
+    <body>
+        <div id="caiDan">
+            <dl id="dt1">
+
+                <dt id="100000"><div>人员管理</div></dt>
+                <dd>
+                    <ul>
+                        <li id="100100" onclick="javascript:gzq('/whwr/goYuanGong.action','人员管理','100100')">人员管理</li>
+                    </ul>
+                </dd>
+                <dt id="800000"><div>部门管理</div></dt>
+                <dd>
+                    <ul>
+                        <li id="800100" onclick="javascript:gzq('/whwr/goBuMen.action','部门管理','800100')">部门管理</li>
+                    </ul>
+                </dd>
+                <dt id="500000"><div>客户管理</div></dt>
+                <dd>
+                    <ul>
+                        <li id="500100" onclick="javascript:gzq('/whwr/goKeHu.action','客户管理','500100')">客户管理</li>
+                    </ul>
+                </dd>
+
+                <dt id="600000"><div>供应商管理</div></dt>
+                <dd>
+                    <ul>
+                        <li id="600100" onclick="javascript:gzq('/whwr/goGongYingShang.action','供应商管理','600100')">供应商管理</li>
+                    </ul>
+                </dd>        
+
+                <dt id="200000"><div>仓库设置</div></dt>
+                <dd>
+                    <ul>	
+                        <li id="200100" onclick="javascript:gzq('/whwr/goCangKu.action','仓库管理','200100')">仓库管理</li>
+                        <li id="200200" onclick="javascript:gzq('/whwr/goWuZiLeiBie.action','物资类别','200200')">物资类别</li>
+                        <li id="200300" onclick="javascript:gzq('/whwr/goWuZiZiDian.action','物资字典','200300')">物资字典</li>
+                    </ul>
+                </dd>
+
+                <dt id="300000"><div>仓库管理</div></dt>
+                <dd>
+                    <ul>
+                        <li id="300100" onclick="javascript:gzq('/whwr/goXiuXiRi.action','请购管理','300100')">请购管理</li>
+                        <li id="300200" onclick="javascript:gzq('/whwr/goKaoQin.action','采购管理','300200')">采购管理</li>
+                        <li id="300300" onclick="javascript:gzq('/whwr/goRuKuDan.action','入库管理','300300')">入库管理</li>
+                        <li id="300400" onclick="javascript:gzq('/whwr/goKmonth.action','出库管理','300400')">出库管理</li>
+                        <li id="300500" onclick="javascript:gzq('/whwr/goKmonth.action','发货管理','300500')">发货管理</li>
+                        <li id="300600" onclick="javascript:gzq('/whwr/goKmonth.action','损耗管理','300600')">损耗管理</li>
+                        <li id="300700" onclick="javascript:gzq('/whwr/goKmonth.action','还库管理','300700')">还库管理</li>
+                        <li id="300800" onclick="javascript:gzq('/whwr/goKmonth.action','库存管理','300800')">库存管理</li>
+                        <li id="300900" onclick="javascript:gzq('/whwr/goKmonth.action','统计分析','300900')">统计分析</li>
+                    </ul>
+                </dd>
+
+                <dt id="400000"><div>报表设置</div></dt>
+                <dd>
+                    <ul>	
+                        <li id="400100" onclick="javascript:gzq('/whwr/goJiankong.action','报表管理','400100')">报表管理</li>
+                    </ul>
+                </dd>
+
+                <dt id="700000"><div>企业字典</div></dt>
+                <dd>
+                    <ul>	
+                        <li id="700100" onclick="javascript:gzq('/whwr/goZiDianLeiBie.action','字典类别','700100')">字典类别</li>
+                        <li id="700200" onclick="javascript:gzq('/whwr/goQiYeZiDian.action','企业字典','700200')">企业字典</li>
+                    </ul>
+                </dd>
+
+                <dt id="900000"><div>系统设置</div></dt>
+                <dd>
+                    <ul>
+                        <li id="900100" onclick="javascript:gzq('/whwr/goPassword.action','修改密码','900100')">修改密码</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </body>
+</html>

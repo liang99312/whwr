@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.whwr.domain.ck.CkRkdMx" table="ckrkdmx">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="increment"/>
+    </id>
+    <property name="cangku_id" type="java.lang.Integer">
+      <column name="cangku_id"/>
+    </property>
+    <property name="cangku_mc" type="java.lang.String">
+      <column name="cangku_mc"/>
+    </property>
+    <property name="rkd_id" type="java.lang.Integer">
+      <column name="rkd_id"/>
+    </property>
+    <property name="m_gys_id" type="java.lang.Integer">
+      <column name="m_gys_id"/>
+    </property>
+    <property name="m_gys" type="java.lang.String">
+      <column name="m_gys"/>
+    </property>
+   <property name="m_gys" type="java.lang.String">
+      <column name="m_gys"/>
+    </property>
+    <property name="wzzd_id" type="java.lang.Integer">
+      <column name="wzzd_id"/>
+    </property>
+    <property name="m_wzmc" type="java.lang.String">
+      <column name="m_wzmc"/>
+    </property>
+    <property name="m_xhgg" type="java.lang.String">
+      <column name="m_xhgg"/>
+    </property>
+    <property name="m_pp" type="java.lang.String">
+      <column name="m_pp"/>
+    </property>
+    <property name="m_scc" type="java.lang.String">
+      <column name="m_scc"/>
+    </property>
+    <property name="m_dj" type="java.lang.Double">
+      <column name="m_dj"/>
+    </property>
+    <property name="m_dw" type="java.lang.String">
+      <column name="m_dw"/>
+    </property>
+    <property name="m_rksl" type="java.lang.Double">
+      <column name="m_rksl"/>
+    </property>
+    <property name="m_gxys" type="java.lang.String">
+      <column name="m_gxys"/>
+    </property>
+    <property name="m_bz" type="java.lang.String">
+      <column name="m_bz"/>
+    </property>
+  </class>
+</hibernate-mapping>

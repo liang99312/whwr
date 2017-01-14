@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.whwr.domain.ck.CkRkd" table="ckrkd">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="increment"/>
+    </id>
+    <property name="lsh" type="java.lang.String">
+      <column name="lsh"/>
+    </property>
+    <property name="cangku_id" type="java.lang.Integer">
+      <column name="cangku_id"/>
+    </property>
+    <property name="cangku_mc" type="java.lang.String">
+      <column name="cangku_mc"/>
+    </property>
+    <property name="a01_id" type="java.lang.Integer">
+      <column name="a01_id"/>
+    </property>
+    <property name="r_ly" type="java.lang.String">
+      <column name="r_ly"/>
+    </property>
+    <property name="r_gys_id" type="java.lang.Integer">
+      <column name="r_gys_id"/>
+    </property>
+    <property name="r_gys" type="java.lang.String">
+      <column name="r_gys"/>
+    </property>
+    <property name="r_dh" type="java.lang.String">
+      <column name="r_dh"/>
+    </property>
+    <property name="r_zsl" type="java.lang.Double">
+      <column name="r_zsl"/>
+    </property>
+    <property name="r_zje" type="java.lang.Double">
+      <column name="r_zje"/>
+    </property>
+    <property name="r_jhr" type="java.lang.String">
+      <column name="r_jhr"/>
+    </property>
+    <property name="r_spr" type="java.lang.String">
+      <column name="r_spr"/>
+    </property>
+    <property name="r_date" type="java.util.Date">
+      <column name="r_date"/>
+    </property>
+    <property name="r_state" type="java.lang.String">
+      <column name="r_state"/>
+    </property>
+    <property name="r_bz" type="java.lang.String">
+      <column name="r_bz"/>
+    </property>
+  </class>
+</hibernate-mapping>

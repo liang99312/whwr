@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.whwr.domain.ck.CkKw" table="ckkw">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="increment"/>
+    </id>
+    <property name="cangku_id" type="java.lang.Integer">
+      <column name="cangku_id"/>
+    </property>
+    <property name="mc" type="java.lang.String">
+      <column name="mc"/>
+    </property>
+    <property name="qi_id" type="java.lang.Integer">
+      <column name="qi_id"/>
+    </property>
+    <property name="zhi_id" type="java.lang.Integer">
+      <column name="zhi_id"/>
+    </property>
+  </class>
+</hibernate-mapping>

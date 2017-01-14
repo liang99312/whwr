@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <constant  name="struts.action.extension" value="action,do"></constant>
+    <include file="struts-default.xml" />
+    <package name="all" namespace="/" extends="json-default">  
+        <global-results>  
+            <result name="login">/login.jsp</result>  
+        </global-results>  
+    </package>   
+        
+    <package name="ziDianAction" namespace="/" extends="all">
+        <action name="goZiDianLeiBie" method="goZiDianLeiBie"  class="com.whwr.action.a01.ZiDianAction">
+            <result name="success">/whwr/zidian/ziDianLeiBie.html</result>
+        </action>
+        <action name="getZdlbs" method="getZdlbs"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="cxZdlb" method="cxZdlb"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="addZdlb" method="addZdlb"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateZdlb" method="updateZdlb"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="delZdlb" method="deleteZdlb"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+                        
+        <action name="goQiYeZiDian" method="goQiYeZiDian"  class="com.whwr.action.a01.ZiDianAction">
+            <result name="success">/whwr/zidian/qiYeZiDian.html</result>
+        </action>
+        <action name="getQyzds" method="getQyzds"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="addQyzd" method="addQyzd"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateQyzd" method="updateQyzd"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="delQyzd" method="deleteQyzd"  class="com.whwr.action.a01.ZiDianAction">
+            <result type="json"></result>
+        </action>
+    </package>
+   	
+</struts>
+    	
+    	
+    	

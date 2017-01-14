@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <constant  name="struts.action.extension" value="action,do"></constant>
+    <include file="struts-default.xml" />
+    <package name="all" namespace="/" extends="json-default">  
+        <global-results>  
+            <result name="login">/login.jsp</result>  
+        </global-results>  
+    </package>
+    <package name="wuZiZiDianAction" namespace="/" extends="all">
+        <action name="goWuZiLeiBie" method="goWuZiLeiBie"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result name="success">/whwr/cangku/wuzizidian/wuZiLeiBie.html</result>
+        </action>
+        <action name="getWzlbs" method="getWzlbs"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="cxWzlb" method="cxWzlb"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="addWzlb" method="addWzlb"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateWzlb" method="updateWzlb"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="delWzlb" method="deleteWzlb"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+                        
+                        
+        <action name="cxWzzd" method="cxWzzd"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="goWuZiZiDian" method="goWuZiZiDian"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result name="success">/whwr/cangku/wuzizidian/wuZiZiDian.html</result>
+        </action>
+        <action name="getWzzds" method="getWzzds"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="addWzzd" method="addWzzd"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateWzzd" method="updateWzzd"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="delWzzd" method="deleteWzzd"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+                        
+                        
+        <action name="cxWzzdXhgg" method="cxWzzdXhgg"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="addWzzdXhgg" method="addWzzdXhgg"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateWzzdXhgg" method="updateWzzdXhgg"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+        <action name="delWzzdXhgg" method="deleteWzzdXhgg"  class="com.whwr.action.ck.WuZiZiDianAction">
+            <result type="json"></result>
+        </action>
+    </package>
+        
+    <package name="cangKuAction" namespace="/" extends="all">
+        <action name="goCangKu" method="goCangKu"  class="com.whwr.action.ck.CangKuAction">
+            <result name="success">/whwr/cangku/cangku/cangKu.html</result>
+        </action>
+        <action name="addCk" method="addCangKu"  class="com.whwr.action.ck.CangKuAction">
+            <result type="json"></result>
+        </action>   
+        <action name="updateCk" method="updateCangKu"  class="com.whwr.action.ck.CangKuAction">
+            <result type="json"></result>
+        </action>  
+        <action name="getCks" method="getCangKus"  class="com.whwr.action.ck.CangKuAction">
+            <result type="json"></result>
+        </action> 
+        <action name="delCk" method="deleteCangKu"  class="com.whwr.action.ck.CangKuAction">
+            <result type="json"></result>
+        </action>  
+        <action name="cxKgck" method="cxKeGuanCangKu"  class="com.whwr.action.ck.CangKuAction">
+            <result type="json"></result>
+        </action>        
+    </package>
+        
+    <package name="ruKuDanAction" namespace="/" extends="all">
+        <action name="goRuKuDan" method="goRuKuDan"  class="com.whwr.action.ck.RuKuDanAction">
+            <result name="success">/whwr/cangku/ruku/ruKuDan.html</result>
+        </action>
+        <action name="getRkds" method="getRuKuDans"  class="com.whwr.action.ck.RuKuDanAction">
+            <result type="json"></result>
+        </action> 
+        <action name="getRkdByHh" method="getRuKuDanById"  class="com.whwr.action.ck.RuKuDanAction">
+            <result type="json"></result>
+        </action>   
+        <action name="addRkd" method="addRuKuDan"  class="com.whwr.action.ck.RuKuDanAction">
+            <result type="json"></result>
+        </action>   
+        <action name="updateRkd" method="updateRuKuDan"  class="com.whwr.action.ck.RuKuDanAction">
+            <result type="json"></result>
+        </action>                  
+        <action name="delRkd" method="deleteRuKuDan"  class="com.whwr.action.ck.RuKuDanAction">
+            <result type="json"></result>
+        </action>         
+    </package>
+    
+</struts>
+    	
+    	
+    	

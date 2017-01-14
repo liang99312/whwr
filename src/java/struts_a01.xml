@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <constant  name="struts.action.extension" value="action,do"></constant>
+    <include file="struts-default.xml" />
+    <package name="all" namespace="/" extends="json-default">  
+        <global-results>  
+            <result name="login">/login.jsp</result>  
+        </global-results>  
+    </package>   
+    
+    <package name="a01Action" namespace="/" extends="all">
+        <action name="getAllA01s" method="getAllA01s"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="getA01s" method="getA01s"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="goYuanGong" method="goA01"  class="com.whwr.action.a01.A01Action">
+            <result name="success">/whwr/person/yuanGong.html</result>
+        </action>
+        <action name="goPassword" method="goA01"  class="com.whwr.action.a01.A01Action">
+            <result name="success">/whwr/system/password.html</result>
+        </action>
+        <action name="checklogin" method="checkLogin"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="changeQuanXian" method="changeQuanXian"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="addA01" method="addA01"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="addFinger" method="addFinger"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="updateA01" method="updateA01"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="delA01" method="deleteA01"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="changePassword" method="changePassword"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="getLoginA01" method="getLoginA01"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="getQx" method="getQx"  class="com.whwr.action.a01.A01Action">
+            <result type="json"></result>
+        </action>
+        <action name="dl" method="dengLu"  class="com.whwr.action.a01.A01Action">
+            <result name="success">/whwr/home/home.html</result>
+        </action>
+    </package>
+        
+    <package name="keHuAction" namespace="/" extends="all">
+        <action name="goKeHu" method="goKeHu"  class="com.whwr.action.a01.KeHuAction">
+            <result name="success">/whwr/kehu/keHu.html</result>
+        </action>
+        <action name="getKeHus" method="getKeHus"  class="com.whwr.action.a01.KeHuAction">
+            <result type="json"></result>
+        </action>
+        <action name="addKeHu" method="addKeHu"  class="com.whwr.action.a01.KeHuAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateKeHu" method="updateKeHu"  class="com.whwr.action.a01.KeHuAction">
+            <result type="json"></result>
+        </action>
+        <action name="delKeHu" method="deleteKeHu"  class="com.whwr.action.a01.KeHuAction">
+            <result type="json"></result>
+        </action>
+    </package>
+        
+    <package name="buMenAction" namespace="/" extends="all">
+        <action name="goBuMen" method="goBuMen"  class="com.whwr.action.a01.BuMenAction">
+            <result name="success">/whwr/bumen/buMen.html</result>
+        </action>
+        <action name="cxBm" method="cxBm"  class="com.whwr.action.a01.BuMenAction">
+            <result type="json"></result>
+        </action>
+        <action name="getBuMens" method="getBuMens"  class="com.whwr.action.a01.BuMenAction">
+            <result type="json"></result>
+        </action>
+        <action name="addBuMen" method="addBuMen"  class="com.whwr.action.a01.BuMenAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateBuMen" method="updateBuMen"  class="com.whwr.action.a01.BuMenAction">
+            <result type="json"></result>
+        </action>
+        <action name="delBuMen" method="deleteBuMen"  class="com.whwr.action.a01.BuMenAction">
+            <result type="json"></result>
+        </action>
+    </package>
+        
+    <package name="gysAction" namespace="/" extends="all">
+        <action name="goGongYingShang" method="goGongYingShang"  class="com.whwr.action.a01.GysAction">
+            <result name="success">/whwr/gongyingshang/gongYingShang.html</result>
+        </action>
+        <action name="getGongYingShangs" method="getGongYingShangs"  class="com.whwr.action.a01.GysAction">
+            <result type="json"></result>
+        </action>
+        <action name="addGongYingShang" method="addGongYingShang"  class="com.whwr.action.a01.GysAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateGongYingShang" method="updateGongYingShang"  class="com.whwr.action.a01.GysAction">
+            <result type="json"></result>
+        </action>
+        <action name="delGongYingShang" method="deleteGongYingShang"  class="com.whwr.action.a01.GysAction">
+            <result type="json"></result>
+        </action>
+        <action name="cxGys" method="cxGongYingShang"  class="com.whwr.action.a01.GysAction">
+            <result type="json"></result>
+        </action>
+    </package>
+   	
+</struts>
+    	
+    	
+    	
