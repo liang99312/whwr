@@ -8,8 +8,8 @@ package com.whwr.action.ck;
 import com.whwr.action.BaseAction;
 import com.whwr.domain.ck.CkKc;
 import com.whwr.domain.ck.CkKcMx;
-import com.whwr.domain.ck.CkRkd;
-import com.whwr.domain.ck.CkRkdMx;
+import com.whwr.domain.ck.CkLld;
+import com.whwr.domain.ck.CkLldMx;
 import com.whwr.service.inter.CommServiceInter;
 import com.whwr.util.DateUtil;
 import com.whwr.util.LshUtil;
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Controller;
  * @author liangxr01
  */
 @Controller
-public class RuKuDanAction extends BaseAction {
+public class LingLiaoDanAction extends BaseAction {
 
     @Resource
     private CommServiceInter commServiceImpl;
@@ -43,14 +43,14 @@ public class RuKuDanAction extends BaseAction {
         this.commServiceImpl = commServiceImpl;
     }
 
-    public String goRuKuDan() throws ServletException, IOException {
+    public String goLingLiaoDan() throws ServletException, IOException {
         if (!existsUser()) {
             return "login";
         }
         return "success";
     }
 
-    public String getRuKuDans() throws ServletException, IOException {
+    public String getLingLiaoDans() throws ServletException, IOException {
         JSONObject result = new JSONObject();
         try {
             if (!existsUser()) {
@@ -63,36 +63,32 @@ public class RuKuDanAction extends BaseAction {
             String whereSql = "";
             whereSql += " cangku_id=" + jsonObj.optInt("cangku_id", 0);
             if (jsonObj.optString("wzmc") != null && !"".equals(jsonObj.optString("wzmc"))) {
-                whereSql += " and e.rkd_id in (select rkd_id from CkRkdMx where m_wzmc like '" + jsonObj.optString("wzmc") + "%')";
+                whereSql += " and e.lld_id in (select lld_id from CkLldMx where m_wzmc like '" + jsonObj.optString("wzmc") + "%')";
             }
             if (jsonObj.optString("qi_date") != null && !"".equals(jsonObj.optString("qi_date"))) {
-                whereSql += " and e.r_date>='" + jsonObj.optString("qi_date") + "'";
+                whereSql += " and e.l_date>='" + jsonObj.optString("qi_date") + "'";
             }
             if (jsonObj.optString("zhi_date") != null && !"".equals(jsonObj.optString("zhi_date"))) {
-                whereSql += " and e.r_date<='" + jsonObj.optString("zhi_date") + "'";
+                whereSql += " and e.l_date<='" + jsonObj.optString("zhi_date") + "'";
             }
             if (jsonObj.optString("state") != null && !"".equals(jsonObj.optString("state"))) {
-                whereSql += " and e.r_state='" + jsonObj.optString("state") + "'";
+                whereSql += " and e.l_state='" + jsonObj.optString("state") + "'";
             }
-            result = commServiceImpl.getPages("from CkRkd e where" + whereSql, pageNow);
-            List<CkRkd> eList = commServiceImpl.getPageList("from CkRkd e where" + whereSql, null, pageNow, pageSize);
+            result = commServiceImpl.getPages("from CkLld e where" + whereSql, pageNow);
+            List<CkLld> eList = commServiceImpl.getPageList("from CkLld e where" + whereSql, null, pageNow, pageSize);
             JSONArray array = new JSONArray();
-            for (CkRkd e : eList) {
+            for (CkLld e : eList) {
                 Map<String, Object> map = new HashMap();
                 map.put("id", e.getId());
                 map.put("cangku_id", e.getCangku_id());
                 map.put("cangku_mc", e.getCangku_mc());
-                map.put("r_ly", e.getR_ly());
-                map.put("r_gys_id", e.getR_gys_id());
-                map.put("r_gys", e.getR_gys());
-                map.put("r_dh", e.getR_dh());
-                map.put("r_zsl", e.getR_zsl());
-                map.put("r_zje", e.getR_zje());
-                map.put("r_jhr", e.getR_jhr());
-                map.put("r_spr", e.getR_spr());
-                map.put("r_date", DateUtil.DateToStr(e.getR_date()));
-                map.put("r_state", e.getR_state());
-                map.put("r_bz", e.getR_bz());
+                map.put("l_zsl", e.getL_zsl());
+                map.put("l_zje", e.getL_zje());
+                map.put("l_jhr", e.getL_jhr());
+                map.put("l_spr", e.getL_spr());
+                map.put("l_date", DateUtil.DateToStr(e.getL_date()));
+                map.put("l_state", e.getL_state());
+                map.put("l_bz", e.getL_bz());
                 array.add(map);
             }
             result.put("sz", array);
@@ -106,7 +102,7 @@ public class RuKuDanAction extends BaseAction {
         return null;
     }
 
-    public String getRuKuDanById() throws ServletException, IOException {
+    public String getLingLiaoDanById() throws ServletException, IOException {
         JSONObject result = new JSONObject();
         try {
             if (!existsUser()) {
@@ -120,16 +116,16 @@ public class RuKuDanAction extends BaseAction {
                 result.put("result", -1);
                 result.put("msg", "找不到入库单信息");
             } else {
-                Object obj = commServiceImpl.findById(CkRkd.class, id);
+                Object obj = commServiceImpl.findById(CkLld.class, id);
                 if (obj == null) {
                     result.clear();
                     result.put("result", -1);
                     result.put("msg", "找不到入库单信息");
                 } else {
-                    List<CkRkdMx> eList = commServiceImpl.getResult("from CkRkdMx where rkd_id=" + id, null);
+                    List<CkLldMx> eList = commServiceImpl.getResult("from CkLldMx where lld_id=" + id, null);
                     JSONArray mxArray = new JSONArray();
                     for (Object o : eList) {
-                        CkRkdMx e = (CkRkdMx) o;
+                        CkLldMx e = (CkLldMx) o;
                         Map<String, Object> map = new HashMap();
                         map.put("id", e.getId());
                         map.put("cangku_id", e.getCangku_id());
@@ -141,30 +137,26 @@ public class RuKuDanAction extends BaseAction {
                         map.put("m_gys", e.getM_gys());
                         map.put("m_gys_id", e.getM_gys_id());
                         map.put("m_pp", e.getM_pp());
-                        map.put("m_rksl", e.getM_rksl());
+                        map.put("m_cksl", e.getM_cksl());
                         map.put("m_scc", e.getM_scc());
                         map.put("m_wzmc", e.getM_wzmc());
                         map.put("m_xhgg", e.getM_xhgg());
-                        map.put("rkd_id", e.getRkd_id());
+                        map.put("lld_id", e.getLld_id());
                         map.put("wzzd_id", e.getWzzd_id());
                         map.put("m_mx", e.getM_mx());
                         mxArray.add(map);
                     }
-                    CkRkd rkd = (CkRkd) obj;
-                    result.put("id", rkd.getId());
-                    result.put("cangku_id", rkd.getCangku_id());
-                    result.put("cangku_mc", rkd.getCangku_mc());
-                    result.put("r_ly", rkd.getR_ly());
-                    result.put("r_gys_id", rkd.getR_gys_id());
-                    result.put("r_gys", rkd.getR_gys());
-                    result.put("r_dh", rkd.getR_dh());
-                    result.put("r_zsl", rkd.getR_zsl());
-                    result.put("r_zje", rkd.getR_zje());
-                    result.put("r_jhr", rkd.getR_jhr());
-                    result.put("r_spr", rkd.getR_spr());
-                    result.put("r_date", DateUtil.DateToStr(rkd.getR_date()));
-                    result.put("r_state", rkd.getR_state());
-                    result.put("r_bz", rkd.getR_bz());
+                    CkLld lld = (CkLld) obj;
+                    result.put("id", lld.getId());
+                    result.put("cangku_id", lld.getCangku_id());
+                    result.put("cangku_mc", lld.getCangku_mc());
+                    result.put("l_zsl", lld.getL_zsl());
+                    result.put("l_zje", lld.getL_zje());
+                    result.put("l_jhr", lld.getL_jhr());
+                    result.put("l_spr", lld.getL_spr());
+                    result.put("l_date", DateUtil.DateToStr(lld.getL_date()));
+                    result.put("l_state", lld.getL_state());
+                    result.put("l_bz", lld.getL_bz());
                     result.put("mx", mxArray);
                     result.put("result", 0);
                 }
@@ -179,49 +171,43 @@ public class RuKuDanAction extends BaseAction {
         return null;
     }
 
-    public String addRuKuDan() throws ServletException, IOException {
+    public String addLingLiaoDan() throws ServletException, IOException {
         JSONObject result = new JSONObject();
         try {
             if (!existsUser()) {
                 return "login";
             }
             JSONObject jsonObj = JSONObject.fromObject(request.getParameter("jsonObj"));
-            CkRkd e = new CkRkd();
+            CkLld e = new CkLld();
             e.setA01_id(getDlA01().getId());
             e.setLsh(LshUtil.getRcdLsh());
             e.setCangku_id(jsonObj.optInt("cangku_id"));
             e.setCangku_mc(jsonObj.optString("cangku_mc"));
-            e.setR_bz(jsonObj.optString("r_bz", ""));
-            e.setR_date(new Date());
-            e.setR_dh(jsonObj.optString("r_dh", ""));
-            e.setR_gys(jsonObj.optString("r_gys", ""));
-            e.setR_gys_id(jsonObj.optInt("r_gys_id", -1));
-            e.setR_jhr(getDlA01().getMc());
-            e.setR_ly(jsonObj.optString("r_ly", ""));
-            e.setR_spr("");
-            e.setR_state("未入库");
-            e.setR_zje(jsonObj.optDouble("r_zje", 0D));
-            e.setR_zsl(jsonObj.optDouble("r_zsl", 0D));
+            e.setL_bz(jsonObj.optString("l_bz", ""));
+            e.setL_date(new Date());
+            e.setL_jhr(getDlA01().getMc());
+            e.setL_spr("");
+            e.setL_state("未出库");
+            e.setL_zje(jsonObj.optDouble("l_zje", 0D));
+            e.setL_zsl(jsonObj.optDouble("l_zsl", 0D));
             Integer id = commServiceImpl.saveObj(e);
             JSONArray mx = jsonObj.getJSONArray("mx");
             for (Object obj : mx) {
                 JSONObject k = (JSONObject) obj;
-                CkRkdMx c = new CkRkdMx();
+                CkLldMx c = new CkLldMx();
                 c.setCangku_id(k.optInt("cangku_id"));
                 c.setCangku_mc(k.optString("cangku_mc"));
                 c.setM_bz(k.optString("m_bz", ""));
                 c.setM_dj(k.optDouble("m_dj", 0D));
                 c.setM_dw(k.optString("m_dw", ""));
                 c.setM_gxys(k.optString("m_gxys", ""));
-                c.setM_gys(e.getR_gys());
-                c.setM_gys_id(e.getR_gys_id());
                 c.setM_pp(k.optString("m_pp", ""));
-                c.setM_rksl(k.optDouble("m_rksl", 0D));
+                c.setM_cksl(k.optDouble("m_cksl", 0D));
                 c.setM_scc(k.optString("m_scc", ""));
                 c.setM_wzmc(k.optString("m_wzmc", ""));
                 c.setM_xhgg(k.optString("m_xhgg", ""));
                 c.setM_mx(k.optString("m_mx", ""));
-                c.setRkd_id(id);
+                c.setLld_id(id);
                 c.setWzzd_id(k.optInt("wzzd_id", 0));
                 commServiceImpl.saveObj(c);
             }
@@ -236,14 +222,14 @@ public class RuKuDanAction extends BaseAction {
         return null;
     }
 
-    public String updateRuKuDan() throws ServletException, IOException {
+    public String updateLingLiaoDan() throws ServletException, IOException {
         JSONObject result = new JSONObject();
         try {
             if (!existsUser()) {
                 return "login";
             }
             JSONObject jsonObj = JSONObject.fromObject(request.getParameter("jsonObj"));
-            CkRkd e = (CkRkd) commServiceImpl.findById(CkRkd.class, jsonObj.optInt("id"));
+            CkLld e = (CkLld) commServiceImpl.findById(CkLld.class, jsonObj.optInt("id"));
             if (e == null) {
                 result.clear();
                 result.put("result", -1);
@@ -252,38 +238,32 @@ public class RuKuDanAction extends BaseAction {
                 e.setA01_id(getDlA01().getId());
                 e.setCangku_id(jsonObj.optInt("cangku_id"));
                 e.setCangku_mc(jsonObj.optString("cangku_mc"));
-                e.setR_bz(jsonObj.optString("r_bz", ""));
-                e.setR_date(new Date());
-                e.setR_dh(jsonObj.optString("r_dh", ""));
-                e.setR_gys(jsonObj.optString("r_gys", ""));
-                e.setR_gys_id(jsonObj.optInt("r_gys_id", -1));
-                e.setR_jhr(getDlA01().getMc());
-                e.setR_ly(jsonObj.optString("r_ly", ""));
-                e.setR_spr("");
-                e.setR_state("未入库");
-                e.setR_zje(jsonObj.optDouble("r_zje", 0D));
-                e.setR_zsl(jsonObj.optDouble("r_zsl", 0D));
+                e.setL_bz(jsonObj.optString("l_bz", ""));
+                e.setL_date(new Date());
+                e.setL_jhr(getDlA01().getMc());
+                e.setL_spr("");
+                e.setL_state("未入库");
+                e.setL_zje(jsonObj.optDouble("l_zje", 0D));
+                e.setL_zsl(jsonObj.optDouble("l_zsl", 0D));
                 commServiceImpl.update(e);
-                commServiceImpl.excuteSql("delete from CkRkdMx where rkd_id=" + e.getId());
+                commServiceImpl.excuteSql("delete from CkLldMx where lld_id=" + e.getId());
                 JSONArray mx = jsonObj.getJSONArray("mx");
                 for (Object obj : mx) {
                     JSONObject k = (JSONObject) obj;
-                    CkRkdMx c = new CkRkdMx();
+                    CkLldMx c = new CkLldMx();
                     c.setCangku_id(k.optInt("cangku_id"));
                     c.setCangku_mc(k.optString("cangku_mc"));
                     c.setM_bz(k.optString("m_bz", ""));
                     c.setM_dj(k.optDouble("m_dj", 0D));
                     c.setM_dw(k.optString("m_dw", ""));
                     c.setM_gxys(k.optString("m_gxys", ""));
-                    c.setM_gys(e.getR_gys());
-                    c.setM_gys_id(e.getR_gys_id());
                     c.setM_pp(k.optString("m_pp", ""));
-                    c.setM_rksl(k.optDouble("m_rksl", 0D));
+                    c.setM_cksl(k.optDouble("m_cksl", 0D));
                     c.setM_scc(k.optString("m_scc", ""));
                     c.setM_wzmc(k.optString("m_wzmc", ""));
                     c.setM_xhgg(k.optString("m_xhgg", ""));
                     c.setM_mx(k.optString("m_mx", ""));
-                    c.setRkd_id(e.getId());
+                    c.setLld_id(e.getId());
                     c.setWzzd_id(k.optInt("wzzd_id", 0));
                     commServiceImpl.saveObj(c);
                 }
@@ -299,7 +279,7 @@ public class RuKuDanAction extends BaseAction {
         return null;
     }
 
-    public String deleteRuKuDan() throws ServletException, IOException {
+    public String deleteLingLiaoDan() throws ServletException, IOException {
         JSONObject result = new JSONObject();
         try {
             if (!existsUser()) {
@@ -307,8 +287,8 @@ public class RuKuDanAction extends BaseAction {
             }
             JSONObject jsonObj = JSONObject.fromObject(request.getParameter("jsonObj"));
             List<String> sqls = new ArrayList<String>();
-            sqls.add("delete from CkRkdMx where rkd_id=" + jsonObj.optInt("id"));
-            sqls.add("delete from CkRkd where id=" + jsonObj.optInt("id"));
+            sqls.add("delete from CkLldMx where lld_id=" + jsonObj.optInt("id"));
+            sqls.add("delete from CkLld where id=" + jsonObj.optInt("id"));
             commServiceImpl.excuteSqls(sqls);
             result.put("result", 0);
         } catch (Exception e) {
@@ -321,7 +301,7 @@ public class RuKuDanAction extends BaseAction {
         return null;
     }
     
-    public String banLiRuKuDan() throws ServletException, IOException {
+    public String banLiLingLiaoDan() throws ServletException, IOException {
         JSONObject result = new JSONObject();
         try {
             if (!existsUser()) {
@@ -329,57 +309,34 @@ public class RuKuDanAction extends BaseAction {
             }
             JSONObject jsonObj = JSONObject.fromObject(request.getParameter("jsonObj"));
             Integer id = jsonObj.optInt("id");
-            CkRkd e = (CkRkd) commServiceImpl.findById(CkRkd.class, id);
-            e.setR_state("已入库");
-            e.setR_spr(getDlA01().getMc());
+            CkLld e = (CkLld) commServiceImpl.findById(CkLld.class, id);
+            e.setL_state("已出库");
+            e.setL_spr(getDlA01().getMc());
             commServiceImpl.update(e);
-            List<CkRkdMx> mxList = commServiceImpl.getResult("from CkRkdMx where rkd_id='"+id+"'", null);
-            JSONArray mx = jsonObj.getJSONArray("mx");
-            HashMap<Integer,JSONObject> mxMap = new HashMap<Integer,JSONObject>();
-            for (Object obj : mx) {
-                JSONObject k = (JSONObject) obj;
-                Integer k_id = k.optInt("id");
-                mxMap.put(k_id,k);
+            List<CkLldMx> mxList = commServiceImpl.getResult("from CkLldMx where lld_id='"+id+"'", null);
+            List<CkKc> kcList = commServiceImpl.getResult("from CkKc where id in(select kucun_id from CkLldMx where lld_id='"+id+"')", null);
+            HashMap<Integer,CkKc> kcMap = new HashMap<Integer,CkKc>();
+            for (CkKc kc : kcList) {
+                kcMap.put(kc.getId(),kc);
             }
-            for(CkRkdMx m:mxList){
-                JSONObject k = mxMap.get(m.getId());
-                if(k == null){
-                    throw new Exception("办理入库单失败");
-                }
-                CkKc c = new CkKc();
-                c.setLsh(LshUtil.getKcLsh());
-                c.setCangku_id(m.getCangku_id());
-                c.setCangku_mc(m.getCangku_mc());
-                c.setK_bz(m.getM_bz());
-                c.setK_rkjg(m.getM_dj());
-                c.setK_dw(m.getM_dw());
-                c.setK_gxys(m.getM_gxys());
-                c.setK_gys(m.getM_gys());
-                c.setK_gys_id(m.getM_gys_id());
-                c.setK_pp(m.getM_pp());
-                c.setK_rksl(m.getM_rksl());
-                c.setK_scc(m.getM_scc());
-                c.setK_wzmc(m.getM_wzmc());
-                c.setK_xhgg(m.getM_xhgg());
-                c.setRkdmx_id(m.getId());
-                c.setK_ckjg(0.00D);
-                c.setK_cksl(0.00D);
-                c.setK_kw(k.optString("kw"));
-                c.setK_syl(m.getM_rksl());
-                c.setWzzd_id(m.getWzzd_id());
-                Integer kc_id = commServiceImpl.saveObj(c);
-                if(m.getM_mx() != null && !"".equals(m.getM_mx())){
-                    JSONArray mxArray = JSONArray.fromObject(m.getM_mx());
-                    for (Object obj : mxArray) {
-                        JSONObject x = (JSONObject) obj;
-                        Integer xh = x.optInt("xh");
-                        Double sl = x.optDouble("sl",0D);
-                        CkKcMx kcmx = new CkKcMx();
-                        kcmx.setKucun_id(kc_id);
-                        kcmx.setXh(xh);
-                        kcmx.setSl(sl);
-                        kcmx.setZt(0);
-                        commServiceImpl.saveObj(kcmx);
+            for(CkLldMx m:mxList){
+                CkKc c = kcMap.get(m.getKucun_id());
+                if(c != null){
+                    if(c.getK_syl() < m.getM_cksl()){
+                        throw new Exception(c.getK_wzmc() + "库存量不足！");
+                    }
+                    c.setK_cksl(c.getK_cksl() + m.getM_cksl());
+                    commServiceImpl.update(c);
+                    if(m.getM_mx() != null && !"".equals(m.getM_mx())){
+                        JSONArray array = JSONArray.fromObject(m.getM_mx());
+                        List<String> sqlList = new ArrayList<String>();
+                        for(Object obj : array){
+                            JSONObject j = (JSONObject) obj;
+                            int xh = j.optInt("xh");
+                            String sql = "update CkKcMx set zt = 1 where kucun_id=" + c.getId() + " and xh=" + xh;
+                            sqlList.add(sql);
+                        }
+                        commServiceImpl.excuteSqls(sqlList);
                     }
                 }
             }

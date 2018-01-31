@@ -12,13 +12,16 @@
     <property name="cangku_mc" type="java.lang.String">
       <column name="cangku_mc"/>
     </property>
-    <property name="rkd_id" type="java.lang.Integer">
-      <column name="rkd_id"/>
+    <property name="lld_id" type="java.lang.Integer">
+      <column name="lld_id"/>
+    </property>
+    <property name="kucun_id" type="java.lang.Integer">
+      <column name="kucun_id"/>
     </property>
     <property name="m_gys_id" type="java.lang.Integer">
       <column name="m_gys_id"/>
     </property>
-   <property name="m_gys" type="java.lang.String">
+    <property name="m_gys" type="java.lang.String">
       <column name="m_gys"/>
     </property>
     <property name="wzzd_id" type="java.lang.Integer">
@@ -42,8 +45,8 @@
     <property name="m_dw" type="java.lang.String">
       <column name="m_dw"/>
     </property>
-    <property name="m_rksl" type="java.lang.Double">
-      <column name="m_rksl"/>
+    <property name="m_cksl" type="java.lang.Double">
+      <column name="m_cksl"/>
     </property>
     <property name="m_gxys" type="java.lang.String">
       <column name="m_gxys"/>

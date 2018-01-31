@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.whwr.domain.ck.CkKc" table="ckkc">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="increment"/>
+    </id>
+    <property name="cangku_id" type="java.lang.Integer">
+      <column name="cangku_id"/>
+    </property>
+    <property name="cangku_mc" type="java.lang.String">
+      <column name="cangku_mc"/>
+    </property>
+    <property name="rkdmx_id" type="java.lang.Integer">
+      <column name="rkdmx_id"/>
+    </property>
+    <property name="k_gys_id" type="java.lang.Integer">
+      <column name="k_gys_id"/>
+    </property>
+    <property name="k_gys" type="java.lang.String">
+      <column name="k_gys"/>
+    </property>
+   <property name="k_gys" type="java.lang.String">
+      <column name="k_gys"/>
+    </property>
+    <property name="wzzd_id" type="java.lang.Integer">
+      <column name="wzzd_id"/>
+    </property>
+    <property name="k_wzmc" type="java.lang.String">
+      <column name="k_wzmc"/>
+    </property>
+    <property name="k_xhgg" type="java.lang.String">
+      <column name="k_xhgg"/>
+    </property>
+    <property name="k_pp" type="java.lang.String">
+      <column name="k_pp"/>
+    </property>
+    <property name="k_scc" type="java.lang.String">
+      <column name="k_scc"/>
+    </property>
+    <property name="k_dw" type="java.lang.String">
+      <column name="k_dw"/>
+    </property>
+    <property name="k_rksl" type="java.lang.Double">
+      <column name="k_rksl"/>
+    </property>
+    <property name="k_cksl" type="java.lang.Double">
+      <column name="k_cksl"/>
+    </property>
+    <property name="k_syl" type="java.lang.Double">
+      <column name="k_syl"/>
+    </property>
+    <property name="k_rkjg" type="java.lang.Double">
+      <column name="k_rkjg"/>
+    </property>
+    <property name="k_ckjg" type="java.lang.Double">
+      <column name="k_ckjg"/>
+    </property>
+    <property name="k_gxys" type="java.lang.String">
+      <column name="k_gxys"/>
+    </property>
+    <property name="k_kw" type="java.lang.String">
+      <column name="k_kw"/>
+    </property>
+    <property name="k_bz" type="java.lang.String">
+      <column name="k_bz"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -103,7 +103,52 @@
         </action>                  
         <action name="delRkd" method="deleteRuKuDan"  class="com.whwr.action.ck.RuKuDanAction">
             <result type="json"></result>
-        </action>         
+        </action>     
+        <action name="blRkd" method="banLiRuKuDan"  class="com.whwr.action.ck.RuKuDanAction">
+            <result type="json"></result>
+        </action>     
+    </package>
+    
+    <package name="kuCunAction" namespace="/" extends="all">
+        <action name="goKuCun" method="goKuCun"  class="com.whwr.action.ck.KuCunAction">
+            <result name="success">/whwr/cangku/kucun/kuCun.html</result>
+        </action>
+        <action name="getKcs" method="getKuCuns"  class="com.whwr.action.ck.KuCunAction">
+            <result type="json"></result>
+        </action> 
+        <action name="getKcByHh" method="getKuCunById"  class="com.whwr.action.ck.KuCunAction">
+            <result type="json"></result>
+        </action>
+        <action name="updateKc" method="updateKuCun"  class="com.whwr.action.ck.KuCunAction">
+            <result type="json"></result>
+        </action>                  
+        <action name="delKc" method="deleteKuCun"  class="com.whwr.action.ck.KuCunAction">
+            <result type="json"></result>
+        </action>   
+    </package>
+    
+    <package name="lingLiaoDanAction" namespace="/" extends="all">
+        <action name="goLingLiaoDan" method="goLingLiaoDan"  class="com.whwr.action.ck.LingLiaoDanAction">
+            <result name="success">/whwr/cangku/lingliao/lingLiaoDan.html</result>
+        </action>
+        <action name="getLlds" method="getLingLiaoDans"  class="com.whwr.action.ck.LingLiaoDanAction">
+            <result type="json"></result>
+        </action> 
+        <action name="getLldByHh" method="getLingLiaoDanById"  class="com.whwr.action.ck.LingLiaoDanAction">
+            <result type="json"></result>
+        </action>   
+        <action name="addLld" method="addLingLiaoDan"  class="com.whwr.action.ck.LingLiaoDanAction">
+            <result type="json"></result>
+        </action>   
+        <action name="updateLld" method="updateLingLiaoDan"  class="com.whwr.action.ck.LingLiaoDanAction">
+            <result type="json"></result>
+        </action>                  
+        <action name="delLld" method="deleteLingLiaoDan"  class="com.whwr.action.ck.LingLiaoDanAction">
+            <result type="json"></result>
+        </action>     
+        <action name="blLld" method="banLiLingLiaoDan"  class="com.whwr.action.ck.LingLiaoDanAction">
+            <result type="json"></result>
+        </action>     
     </package>
     
 </struts>

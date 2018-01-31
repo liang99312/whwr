@@ -9,11 +9,12 @@ import java.util.Objects;
 import javax.persistence.Entity;
 
 @Entity
-public class CkRkdMx {
+public class CkLldMx {
     private Integer id;
     private Integer cangku_id;
     private String cangku_mc;
-    private Integer rkd_id;
+    private Integer lld_id;
+    private Integer kucun_id;
     private Integer m_gys_id;
     private String m_gys;
     private Integer wzzd_id;
@@ -23,7 +24,7 @@ public class CkRkdMx {
     private String m_scc;
     private Double m_dj;
     private String m_dw;
-    private Double m_rksl;
+    private Double m_cksl;
     private String m_gxys;
     private String m_mx;
     private String m_bz;
@@ -52,12 +53,20 @@ public class CkRkdMx {
         this.cangku_mc = cangku_mc;
     }
 
-    public Integer getRkd_id() {
-        return rkd_id;
+    public Integer getLld_id() {
+        return lld_id;
     }
 
-    public void setRkd_id(Integer rkd_id) {
-        this.rkd_id = rkd_id;
+    public void setLld_id(Integer lld_id) {
+        this.lld_id = lld_id;
+    }
+
+    public Integer getKucun_id() {
+        return kucun_id;
+    }
+
+    public void setKucun_id(Integer kucun_id) {
+        this.kucun_id = kucun_id;
     }
 
     public Integer getM_gys_id() {
@@ -132,12 +141,12 @@ public class CkRkdMx {
         this.m_dw = m_dw;
     }
 
-    public Double getM_rksl() {
-        return m_rksl;
+    public Double getM_cksl() {
+        return m_cksl;
     }
 
-    public void setM_rksl(Double m_rksl) {
-        this.m_rksl = m_rksl;
+    public void setM_cksl(Double m_cksl) {
+        this.m_cksl = m_cksl;
     }
 
     public String getM_gxys() {
@@ -179,7 +188,7 @@ public class CkRkdMx {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CkRkdMx other = (CkRkdMx) obj;
+        final CkLldMx other = (CkLldMx) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
