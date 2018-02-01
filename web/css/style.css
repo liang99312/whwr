@@ -280,20 +280,6 @@ div.topBar td {
 	background: url(/whwr/images/form_H/form_01_01.jpg) repeat-x 0 0 ;
 }
 
-/**
-div.close {
-	width: 30px;
-	height: 31px;
-	border: 0;
-	cursor: pointer;
-	background: url(/whwr/images/close1.gif) no-repeat center;
-}
-
-div.close:hover {
-	background: url(/whwr/images/close2.gif) no-repeat center;
-}
-*/
-
 div.close {
 	width:17px;
 	height:17px;

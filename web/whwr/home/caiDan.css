@@ -64,8 +64,9 @@ li{
 }
 
 li.selected {
-	background: url(../../images/menu_H/menu_01_m01.jpg) repeat-x 0 0;
-	border:1px solid #dea303; 
+        background: linear-gradient(#38f, #1c64dc, #38f);
+/*	background: url(../../images/menu_H/menu_01_m01.jpg) repeat-x 0 0;
+	border:1px solid #dea303; */
 	color: white;
         border-radius: 3px;
 }
