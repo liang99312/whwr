@@ -108,6 +108,66 @@ public class KuCunAction extends BaseAction {
         return null;
     }
 
+    public String getKuCunsBySel() throws ServletException, IOException {
+        JSONObject result = new JSONObject();
+        try {
+            if (!existsUser()) {
+                return "login";
+            }
+            JSONObject jsonObj = getJsonObject();
+            response.setCharacterEncoding("utf-8");
+            String whereSql = "";
+            whereSql += " cangku_id=" + jsonObj.optInt("cangku_id", 0);
+            if (jsonObj.optString("wzmc") != null && !"".equals(jsonObj.optString("wzmc"))) {
+                whereSql += " and e.k_wzmc like '" + jsonObj.optString("wzmc") + "%'";
+            }
+            if (jsonObj.optString("lsh") != null && !"".equals(jsonObj.optString("lsh"))) {
+                whereSql += " and e.lsh like '" + jsonObj.optString("lsh") + "%'";
+            }
+            if (jsonObj.optString("qi_date") != null && !"".equals(jsonObj.optString("qi_date"))) {
+                whereSql += " and e.r_date>='" + jsonObj.optString("qi_date") + "'";
+            }
+            if (jsonObj.optString("zhi_date") != null && !"".equals(jsonObj.optString("zhi_date"))) {
+                whereSql += " and e.r_date<='" + jsonObj.optString("zhi_date") + "'";
+            }
+            List<CkKc> eList = commServiceImpl.getResult("from CkKc e where" + whereSql + " limit 100", null);
+            JSONArray array = new JSONArray();
+            for (CkKc e : eList) {
+                Map<String, Object> map = new HashMap();
+                map.put("id", e.getId());
+                map.put("cangku_id", e.getCangku_id());
+                map.put("cangku_mc", e.getCangku_mc());
+                map.put("k_bz", e.getK_bz());
+                map.put("k_dw", e.getK_dw());
+                map.put("k_gxys", e.getK_gxys());
+                map.put("k_gys", e.getK_gys());
+                map.put("k_gys_id", e.getK_gys_id());
+                map.put("k_pp", e.getK_pp());
+                map.put("k_rksl", e.getK_rksl());
+                map.put("k_scc", e.getK_scc());
+                map.put("k_wzmc", e.getK_wzmc());
+                map.put("k_xhgg", e.getK_xhgg());
+                map.put("rkdmx_id", e.getRkdmx_id());
+                map.put("wzzd_id", e.getWzzd_id());
+                map.put("k_rkjg", e.getK_rkjg());
+                map.put("k_rksl", e.getK_rksl());
+                map.put("k_ckjg", e.getK_ckjg());
+                map.put("k_cksl", e.getK_cksl());
+                map.put("k_syl", e.getK_syl());
+                map.put("k_kw", e.getK_kw());
+                array.add(map);
+            }
+            result.put("sz", array);
+        } catch (Exception e) {
+            result.clear();
+            result.put("result", -1);
+            result.put("msg", e.getMessage());
+        } finally {
+            renderJson(result.toString());
+        }
+        return null;
+    }
+    
     public String getKuCunById() throws ServletException, IOException {
         JSONObject result = new JSONObject();
         try {
