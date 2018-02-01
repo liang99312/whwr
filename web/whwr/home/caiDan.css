@@ -1,3 +1,6 @@
+*{
+    font-family: "verdana", "arial", "宋体";
+}
 #caiDan{
 	position: absolute;
 	width: 168px;
@@ -64,6 +67,7 @@ li.selected {
 	background: url(../../images/menu_H/menu_01_m01.jpg) repeat-x 0 0;
 	border:1px solid #dea303; 
 	color: white;
+        border-radius: 3px;
 }
 
 ul li:first-child{

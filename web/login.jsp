@@ -127,7 +127,7 @@
 		<div align="center" style="height: 200px; width: 300px;">
 			<table class="dengLu">		
 				<tbody><tr class="biaoTi">
-					<td colspan="2">Please Sign In</td>
+					<td colspan="2"></td>
 				</tr>
 				<tr>
 					<td style="text-align: right">用户名:</td>
