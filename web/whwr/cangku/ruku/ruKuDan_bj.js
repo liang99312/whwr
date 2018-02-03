@@ -246,3 +246,8 @@ function saveKw(){
     $("#divFrmKw").hide();
     $("#board").css("z-index", $("#divFrmRkd").css("z-index") - 1).show();
 }
+
+function zjRuKuDanMx(){
+    $("#divFrmRkdMx").show();
+    $("#board").css("z-index", $("#divFrmRkdMx").css("z-index") - 1).show();
+}
