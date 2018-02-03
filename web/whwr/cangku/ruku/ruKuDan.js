@@ -105,7 +105,7 @@ function jxRuKuDan(json) {
 
 function zjRuKuDan() {
     isEditRkd = false;
-    $("#ifrm").attr("src", "/whwr/cangKu/ruKu/ruKuDan_bj.html");
+    $("#ifrm").attr("src", "./whwr/cangku/ruku/ruKuDan_bj.html");
     $("#dvIfm").show();
 
 }
@@ -116,7 +116,7 @@ function xgRuKuDan() {
     }
     isEditRkd = true;
     rkdBianHao = ruKuDan.sz[ruKuDan.seq].id;
-    $("#ifrm").attr("src", "/whwr/cangKu/ruKu/ruKuDan_bj.html");
+    $("#ifrm").attr("src", "./whwr/cangku/ruku/ruKuDan_bj.html");
     $("#dvIfm").show();
 }
 
